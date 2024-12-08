@@ -3,6 +3,3 @@ build
 migrations
 db.db
 duckdb
-.env
-data
-src/src
