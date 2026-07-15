@@ -29,6 +29,13 @@ func main() {
 		return
 	}
 
+	lockFile, err := acquireLock(dbFile + ".lock")
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	defer releaseLock(lockFile)
+
 	switch flag.Args()[0] {
 	case "init":
 		initialize()
